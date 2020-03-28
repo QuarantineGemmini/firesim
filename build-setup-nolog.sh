@@ -120,6 +120,7 @@ fi
         ./scripts/build-toolchains.sh ec2fast
     else
         #./scripts/build-toolchains.sh esp-tools
+        true
     fi
 )
 

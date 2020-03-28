@@ -2,7 +2,8 @@
 # without using the manager at all.
 
 unamestr=$(uname)
-RDIR=$(pwd)
+AWSFPGA=$RDIR/platforms/f1/aws-fpga
+RDIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 AWSFPGA=$RDIR/platforms/f1/aws-fpga
 
 # setup risc-v tools
@@ -16,7 +17,7 @@ export CL_DIR=$AWSFPGA/hdk/cl/developer_designs/cl_firesim
 cd $RDIR
 
 # put the manager on the user path
-export PATH=$PATH:$(pwd)/deploy
+export PATH=$PATH:$RDIR/deploy
 
 # setup ssh-agent
 source deploy/ssh-setup.sh
