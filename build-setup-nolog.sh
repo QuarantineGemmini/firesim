@@ -12,8 +12,8 @@ set -e
 set -o pipefail
 
 unamestr=$(uname)
-RISCV=$(pwd)/riscv-tools-install
-RDIR=$(pwd)
+RDIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+RISCV="$(dirname "$(dirname "$RDIR")")/esp-tools-install"
 
 FASTINSTALL=false
 IS_LIBRARY=false
@@ -119,7 +119,7 @@ fi
     if [ "$FASTINSTALL" = "true" ] ; then
         ./scripts/build-toolchains.sh ec2fast
     else
-        ./scripts/build-toolchains.sh
+        #./scripts/build-toolchains.sh esp-tools
     fi
 )
 
