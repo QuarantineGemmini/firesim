@@ -180,7 +180,7 @@ $(fpga_tcl_env): $(VERILOG) $(fpga_work_dir)/stamp
 	cp -f $(GENERATED_DIR)/$(@F) $@
 
 .PHONY: $(ila_work_dir)
-$(ila_work_dir): $(verilog) $(fpga_work_dir)/stamp
+$(ila_work_dir): $(VERILOG) $(fpga_work_dir)/stamp
 	cp -f $(GENERATED_DIR)/firesim_ila_insert_* $(fpga_work_dir)/design/ila_files/
 	sed -i "s/\$$random/64'b0/g" $(fpga_work_dir)/design/ila_files/*
 	sed -i 's/fatal/fatal(0, "")/g' $(fpga_work_dir)/design/ila_files/*
