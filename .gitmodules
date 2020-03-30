@@ -3,7 +3,8 @@
 	url = https://github.com/firesim/aws-fpga-firesim
 [submodule "sw/firesim-software"]
 	path = sw/firesim-software
-	url = https://github.com/firesim/firesim-software
+  #url = https://github.com/firesim/firesim-software
+  url = git@github.com:QuarantineGemmini/firesim-software.git
 [submodule "target-design/chipyard"]
 	path = target-design/chipyard
 	url = https://github.com/ucb-bar/project-template
