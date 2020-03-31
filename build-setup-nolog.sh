@@ -125,12 +125,17 @@ fi
 )
 
 #generate env.sh file which sources the chipyard env.sh file
-echo "if [ -f \"$target_chipyard_dir/env.sh\" ]; then" > env.sh
-echo "  source $target_chipyard_dir/env.sh" >> env.sh
-echo "  export FIRESIM_ENV_SOURCED=1" >> env.sh
-echo "else" >> env.sh
-echo "  echo \"Error: You may have forgot to build or source the toolchains (build them independently in firesim-as-a-library mode)\"" >> env.sh
-echo "fi" >> env.sh
+tgtenv=env.sh
+if [ -e "$target_chipyard_dir/sourceme.sh" ]; then tgtenv=sourceme.sh; fi
+
+cat > env.sh <<EOF
+if [ -f "$target_chipyard_dir/$tgtenv" ]; then
+  source "$target_chipyard_dir/$tgtenv"
+  export FIRESIM_ENV_SOURCED=1
+else
+  echo "Error: You may have forgot to build or source the toolchains (build them independently in firesim-as-a-library mode)"
+fi
+EOF
 
 if  [ "$IS_LIBRARY" = false ]; then
     echo "export FIRESIM_STANDALONE=1" >> env.sh
