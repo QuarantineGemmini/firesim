@@ -1,0 +1,8 @@
+{
+	"benchmark_name": "orig_tiler",
+	"common_simulation_outputs": [
+		"uartlog"
+	],
+	"common_bootbinary": "../../../sw/firesim-software/images/orig_tiler-bin",
+	"common_rootfs": "../../../sw/firesim-software/images/orig_tiler.img"
+}
