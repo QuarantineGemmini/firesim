@@ -6,15 +6,15 @@ AWSFPGA=$RDIR/platforms/f1/aws-fpga
 RDIR="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 AWSFPGA=$RDIR/platforms/f1/aws-fpga
 
-# setup risc-v tools
-source ./env.sh
-
 # setup AWS tools
 cd $AWSFPGA
 source ./hdk_setup.sh
 source ./sdk_setup.sh
 export CL_DIR=$AWSFPGA/hdk/cl/developer_designs/cl_firesim
 cd $RDIR
+
+# setup risc-v tools
+source ./env.sh
 
 # put the manager on the user path
 export PATH=$PATH:$RDIR/deploy
