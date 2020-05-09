@@ -167,17 +167,17 @@ class RuntimeHWConfig:
         target_config = triplet_pieces[1]
         platform_config = triplet_pieces[2]
         rootLogger.info("Building FPGA software driver for " + str(self.get_deploytriplet_for_config()))
-        with prefix('cd ../'), prefix('source ./sourceme-f1-manager.sh'), prefix('cd sim/'), StreamLogger('stdout'), StreamLogger('stderr'):
-            localcap = None
-            with settings(warn_only=True):
-                driverbuildcommand = """make DESIGN={} TARGET_CONFIG={} PLATFORM_CONFIG={} f1""".format(design, target_config, platform_config)
-                localcap = local(driverbuildcommand, capture=True)
-            rootLogger.debug("[localhost] " + str(localcap))
-            rootLogger.debug("[localhost] " + str(localcap.stderr))
-            if localcap.failed:
-                rootLogger.info("FPGA software driver build failed. Exiting. See log for details.")
-                rootLogger.info("""You can also re-run '{}' in the 'firesim/sim' directory to debug this error.""".format(driverbuildcommand))
-                exit(1)
+        #with prefix('cd ../'), prefix('source ./sourceme-f1-manager.sh'), prefix('cd sim/'), StreamLogger('stdout'), StreamLogger('stderr'):
+        #    localcap = None
+        #    #with settings(warn_only=True):
+        #    #    driverbuildcommand = """make DESIGN={} TARGET_CONFIG={} PLATFORM_CONFIG={} f1""".format(design, target_config, platform_config)
+        #    #    localcap = local(driverbuildcommand, capture=True)
+        #    rootLogger.debug("[localhost] " + str(localcap))
+        #    rootLogger.debug("[localhost] " + str(localcap.stderr))
+        #    if localcap.failed:
+        #        rootLogger.info("FPGA software driver build failed. Exiting. See log for details.")
+        #        rootLogger.info("""You can also re-run '{}' in the 'firesim/sim' directory to debug this error.""".format(driverbuildcommand))
+        #        exit(1)
 
         self.driver_built = True
 
