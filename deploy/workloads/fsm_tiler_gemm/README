@@ -1,0 +1,4 @@
+This workload was generated using firesim-software. See the following config
+and workload directory for details:
+../../../../../generators/gemmini/software/firesim-sw-configs/fsm_tiler_gemm.json
+../../../../../generators/gemmini/software

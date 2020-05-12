@@ -1,0 +1,8 @@
+{
+	"benchmark_name": "fsm_tiler_gemm",
+	"common_simulation_outputs": [
+		"uartlog"
+	],
+	"common_bootbinary": "../../../sw/firesim-software/images/fsm_tiler_gemm-bin",
+	"common_rootfs": "../../../sw/firesim-software/images/fsm_tiler_gemm.img"
+}
